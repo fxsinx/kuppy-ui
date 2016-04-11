@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Kuppy UI Demo Page</title>
+    <link rel="stylesheet" href="./src/kuppy-ui.css" media="screen" charset="utf-8" />
+</head>
+
+<body>
+    <div class="main no-select">
+        <section>
+            <h2 class="section-title">Kuppy UI Demo Page</h2>
+            <h4 class="caption-text text-center">Where are you from</h4>
+            <div class="kuppy-segment-container">
+                <input id="china-country" checked type="radio" name="country" class="hide" value="male" />
+                <label for="china-country" class="kuppy-segment">China</label>
+                <input id="usa-country" type="radio" name="country" class="hide" value="female" />
+                <label for="usa-country" class="kuppy-segment">United States</label>
+                <input id="japan-country" type="radio" name="country" class="hide" value="secret" />
+                <label for="japan-country" class="kuppy-segment">Japan</label>
+            </div>
+
+            <div class="field first">
+                <h4 class="hero-text">Receive Newsletters
+                    <input class="hide" type="checkbox" checked id="receive-newsletter-switch" />
+                    <label for="receive-newsletter-switch" class="kuppy-switch"><b></b></label>
+                    </h4>
+            </div>
+
+            <div class="field">
+                <h4 class="hero-text">Do Not Bother
+                        <span class="hero-descript">Do not send me any notifications when I sleep.</span>
+                    <input class="hide" type="checkbox" id="donotbother-switch" />
+                    <label for="donotbother-switch" class="kuppy-switch"><b></b></label>
+                    </h4>
+            </div>
+
+            <div class="field">
+                <div class="kuppy-textfield-container">
+                    <input id="name-text" size="30" class="kuppy-textfield" type="text" value="" />
+                    <label for="name-text" class="kuppy-text">Your Name</label>
+                </div>
+                <div class="kuppy-textfield-container">
+                    <input id="email-text" size="30" class="kuppy-textfield" type="email" value="" />
+                    <label for="email-text" class="kuppy-text">Your Email</label>
+                </div>
+            </div>
+
+            <div class="field">
+                <h4 class="caption-text">What is your gender</h4>
+                <input id="male-gender" type="radio" name="gender" class="hide" value="male" />
+                <label for="male-gender" class="kuppy-radio">Male</label>
+                <input id="female-gender" type="radio" name="gender" class="hide" value="female" />
+                <label for="female-gender" class="kuppy-radio">Female</label>
+                <input id="secret-gender" type="radio" name="gender" class="hide" value="secret" />
+                <label for="secret-gender" class="kuppy-radio">It's a Secret</label>
+            </div>
+
+
+            <div class="field">
+                <h4 class="caption-text">What are your favorite colors</h4>
+                <input id="white-color" type="checkbox" name="color" class="hide" value="male" />
+                <label for="white-color" class="kuppy-checkbox">White</label>
+                <input id="red-color" type="checkbox" name="color" class="hide" value="female" />
+                <label for="red-color" class="kuppy-checkbox">Red</label>
+                <input id="green-color" type="checkbox" name="color" class="hide" value="secret" />
+                <label for="green-color" class="kuppy-checkbox">Green</label>
+            </div>
+
+            <div class="field">
+                <h4 class="caption-text">Action buttons</h4>
+                <button>Normal</button>
+                <button class="white-btn">White</button>
+                <button class="reload-btn">Reload</button>
+                <button class="destructive-btn">Destructive</button>
+            </div>
+
+            <div class="field">
+                <h4 class="caption-text text-center">Who is your favorite teacher</h4>
+                <div class="kuppy-selection-container">
+                    <input id="wang-person" checked type="checkbox" name="person" class="hide" value="male" />
+                    <label for="wang-person" class="kuppy-selection">Miss Wang</label>
+                    <input id="lee-person" type="checkbox" name="person" class="hide" value="female" />
+                    <label for="lee-person" class="kuppy-selection">Mr Lee</label>
+                    <input id="zhang-person" type="checkbox" name="person" class="hide" value="secret" />
+                    <label for="zhang-person" class="kuppy-selection">Mrs Zhang</label>
+                </div>
+            </div>
+
+
+            <p class="section-footer">All fields are required. See more detail at <a href="https://github.com/fxsinx/kuppy-ui">Github/Fxsinx</a>.</p>
+        </section>
+    </div>
+
+
+    <script type="text/javascript">
+        var textFields = document.querySelectorAll('.kuppy-textfield');
+        for (var i = 0; i < textFields.length; i++) {
+            textFields[i].addEventListener('keyup', function(e) {
+                this.setAttribute('value', this.value);
+            }, false);
+        }
+    </script>
+
+
+</body>
+
+</html>

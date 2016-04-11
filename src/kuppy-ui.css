@@ -1,0 +1,441 @@
+/* Clear */
+
+body {
+    font-size: 100%;
+    background: #f1f1f1;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 0;
+}
+h1, h2, h3, h4, h5, h6, form, ul, ol, section, nav, sidebar {
+    padding: 0;
+    margin: 0;
+}
+input:focus, textarea, button {
+    outline: none;
+}
+ul, ol {
+    list-style: none;
+}
+a {
+    color: #0D94FF;
+    text-decoration: none;
+}
+a:hover {
+    color: #0075D2;
+    text-decoration: underline;
+}
+.no-select {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+.text-center {
+    text-align: center;
+}
+.main {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 960px;
+    background: #FFF;
+}
+section {
+    padding: 50px 0;
+}
+.section-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #666;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 5px 20px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 1px #FFF;
+}
+.section-footer {
+    font-weight: 300;
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 0.5px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 1px #FFF;
+}
+.hide {
+    display: none;
+}
+.kuppy-switch {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -20px;
+    margin-right: 30px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    width: 80px;
+    display: block;
+    background: #0D94FF;
+    height: 40px;
+    border-radius: 20px;
+    float: right;
+    font-size: 12px;
+    color: #777;
+    font-weight: 300;
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+.kuppy-switch::before {
+    content: " ";
+    width: 80px;
+    height: 40px;
+    background: #CCC;
+    transition: all .2s;
+    display: block;
+    border-radius: 20px;
+    transform: scale(1, 1);
+}
+.kuppy-switch::after {
+    content: " ";
+    width: 40px;
+    height: 40px;
+    transition: all .2s;
+    box-shadow: 2px 1px 5px rgba(170, 170, 170, 0.5);
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #FFF;
+}
+.kuppy-switch:hover::after {
+    box-shadow: 2px 1px 10px rgba(170, 170, 170, 0.5);
+    transition: all .1s;
+}
+.kuppy-switch b:after {
+    content: "OFF";
+}
+input:checked + .kuppy-switch b:after {
+    content: "ON";
+}
+input:checked + .kuppy-switch {
+    color: #0D94FF;
+}
+input:checked + .kuppy-switch::before {
+    transform: scale(0, 0);
+    transition: all .2s;
+}
+input:checked + .kuppy-switch::after {
+    transform: translate(40px, 0);
+    transition: all .2s;
+}
+.hero-text {
+    position: relative;
+    min-height: 80px;
+    line-height: 80px;
+    font-size: 20px;
+    color: #666;
+    font-weight: 300;
+    padding-left: 20px;
+}
+.hero-descript {
+    display: block;
+    margin-top: -20px;
+    margin-right: 200px;
+    font-size: 14px;
+    line-height: 20px;
+    min-height: 20px;
+    color: #999;
+}
+.caption-text {
+    position: relative;
+    min-height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    color: #666;
+    font-weight: 300;
+    padding-left: 20px;
+}
+.field {
+    min-height: 80px;
+    padding: 20px 0;
+    border-bottom: 1px solid #EAEAEA;
+}
+.field:first-of-type, .field.first {
+    border-top: 1px solid #EAEAEA;
+}
+.kuppy-textfield {
+    min-width: 100px;
+    min-height: 40px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #CCC;
+    color: #444;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 0 3px;
+}
+.kuppy-textfield-container {
+    margin: 30px;
+    display: inline-block;
+    overflow: visible;
+    position: relative;
+}
+.kuppy-textfield~label {
+    font-weight: 300;
+    left: 0;
+    position: absolute;
+    font-size: 12px;
+    top: -5px;
+    transform: scale(1, 1) translate(0, -50%);
+    color: #666;
+    cursor: text;
+    transition: all .2s;
+}
+.kuppy-textfield[value=""]~label {
+    top: 50%;
+    font-size: 20px;
+    color: #666;
+    transition: all .2s;
+}
+.kuppy-textfield:active, .kuppy-textfield:focus {
+    border-bottom-color: #0D94FF;
+    transition: all .2s;
+}
+.kuppy-textfield:active ~ label, .kuppy-textfield:focus ~ label {
+    font-size: 12px;
+    top: -5px;
+    color: #0D94FF;
+    transition: all .2s;
+}
+.kuppy-radio {
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 300;
+    line-height: 20px;
+    padding-left: 30px;
+    min-height: 20px;
+    color: #666;
+    position: relative;
+    margin: 20px 30px;
+}
+.kuppy-radio::before {
+    content: " ";
+    display: block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #CCC;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transition: all .2s;
+    transform: translate(0, -50%);
+}
+.kuppy-radio:hover::before {
+    border: 2px solid #BBB;
+}
+.kuppy-radio::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    transition: all .2s;
+    width: 10px;
+    height: 10px;
+    background: #0D94FF;
+    border-radius: 50%;
+    left: 6px;
+    top: 50%;
+    transform: translate(0, -50%) scale(0, 0);
+}
+input:checked + .kuppy-radio::before {
+    border: 2px solid #0D94FF;
+    transition: all .2s;
+}
+input:checked + .kuppy-radio::after {
+    transform: translate(0, -50%) scale(1, 1);
+    transition: all .2s;
+}
+.kuppy-checkbox {
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 300;
+    line-height: 20px;
+    padding-left: 30px;
+    min-height: 20px;
+    color: #666;
+    position: relative;
+    margin: 20px 30px;
+}
+.kuppy-checkbox::before {
+    content: " ";
+    display: block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #CCC;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transition: all .2s;
+    transform: translate(0, -50%);
+}
+.kuppy-checkbox::after {
+    content: "\2713";
+    position: absolute;
+    display: block;
+    font-size: 14px;
+    transition: all .2s;
+    color: #0D94FF;
+    text-align: center;
+    width: 18px;
+    height: 18px;
+    left: 2px;
+    top: 50%;
+    transform: translate(0, -50%) scale(0, 0);
+}
+.kuppy-checkbox:hover::before {
+    border: 2px solid #BBB;
+}
+input:checked + .kuppy-checkbox::before {
+    border: 2px solid #0D94FF;
+    transition: all .2s;
+}
+input:checked + .kuppy-checkbox::after {
+    transform: translate(0, -50%) scale(1, 1);
+    transition: all .2s;
+}
+.kuppy-segment-container, .kuppy-selection-container {
+    text-align: center;
+    font-size: 0;
+}
+.kuppy-segment {
+    color: #0075D2;
+    cursor: pointer;
+    letter-spacing: 0;
+    word-spacing: 0;
+    font-size: 16px;
+    display: inline-block;
+    margin: 10px auto 30px auto;
+    padding: 7px 35px;
+    border: 1px solid #0D94FF;
+    transition: all .2s;
+}
+.kuppy-segment:first-of-type {
+    border: 1px solid #0D94FF;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-right-width: 0;
+}
+.kuppy-segment:last-of-type {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: 1px solid #0D94FF;
+    border-left-width: 0;
+}
+input:checked + .kuppy-segment {
+    background: #0D94FF;
+    transition: all .2s;
+    color: #FFF;
+}
+button {
+    margin: 20px;
+    cursor: pointer;
+    padding: 5px 20px;
+    font-size: 14px;
+    font-weight: 300;
+    transition: all .2s;
+    border: 1px solid #0D94FF;
+    background: linear-gradient(to bottom, #0D94FF, #1F8DFF);
+    color: #FFF;
+    text-shadow: 0 1px 0 #000;
+    border-radius: 5px;
+}
+button:active {
+    background: linear-gradient(to bottom, #008FFF, #0074EC);
+}
+.reload-btn {
+    border: 1px solid #3793FF;
+    background: linear-gradient(to bottom, #1D85FF, #007DFF);
+    color: #FFF;
+    text-shadow: 0 1px 0 #000;
+}
+.reload-btn::before {
+    content: "\21bb";
+    display: inline-block;
+    margin-right: 5px;
+    transition: all .2s;
+}
+button:hover {
+    transition: all .2s;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.reload-btn:hover::before {
+    transition: all .2s;
+    transform: rotate(180deg) scale(1.1, 1.1);
+}
+.white-btn {
+    border: 1px solid #DCDCDC;
+    background: linear-gradient(to bottom, #FAFAFA, #F1F1F1);
+    color: #666;
+    text-shadow: 0 1px 0 #FFF;
+}
+.white-btn:hover {
+    transition: all .2s;
+    box-shadow: none;
+    background: linear-gradient(to bottom, #FAFAFA, #EAEAEA);
+}
+.white-btn:active {
+    transition: all .2s;
+    background: linear-gradient(to bottom, #EAEAEA, #FAFAFA);
+}
+.destructive-btn {
+    background: linear-gradient(to bottom, #FF0000, #C10000);
+    border-color: #B90000;
+}
+.destructive-btn:active {
+    background: linear-gradient(to bottom, #C10000, #FF0000);
+}
+.kuppy-selection {
+    display: inline-block;
+    cursor: pointer;
+    border: 3px solid rgba(0, 0, 0, 0);
+    width: 100px;
+    height: 100px;
+    position: relative;
+    font-weight: 300;
+    line-height: 155px;
+    overflow: visible;
+    border-radius: 50%;
+    margin: 0 20px;
+    font-size: 12px;
+    background-color: #FFF;
+    transition: all .1s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.2);
+}
+.kuppy-selection {
+    background-repeat: no-repeat;
+    background-size: 60px;
+    background-position: center 8px;
+    background-image: url('./images/heart.png');
+}
+.kuppy-selection:hover, input:checked + .kuppy-selection {
+    border: 3px solid #0D94FF;
+    transform: scale(1.1, 1.1);
+    transition: all .1s;
+}
+input:checked + .kuppy-selection {
+    color: #FFF;
+    text-shadow: 0 0 1px #000;
+    border: 3px solid #0074EC;
+    transition: all .1s;
+    background-color: #0D94FF;
+}
