@@ -349,7 +349,6 @@ input:checked + .kuppy-checkbox::after {
 }
 .kuppy-segment.first,
 .kuppy-segment:first-of-type {
-    border-right: 1px solid #0D94FF !important;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     border-right-width: 0;
@@ -499,6 +498,10 @@ p {
     margin: 30px;
 }
 
+.kuppy-segment.first,
+.kuppy-segment:first-of-type {
+    border-right: 1px solid #0D94FF !important;
+}
 
 
 }
