@@ -44,6 +44,12 @@ a:hover {
 .text-center {
     text-align: center;
 }
+.blur {
+    -webkit-filter: blur(20px);
+    -ms-filter: blur(20px);
+    -moz-filter: blur(20px);
+    filter: blur(20px);
+}
 .main {
     border-radius: 10px;
     margin: 70px auto;
@@ -51,6 +57,7 @@ a:hover {
     max-width: 960px;
     background: #FFF;
     box-shadow: 0 1px 8px rgba(136, 136, 136, 0.1);
+    overflow: hidden;
 }
 section {
     padding: 50px 0;
@@ -347,8 +354,7 @@ input:checked + .kuppy-checkbox::after {
     border-right: none;
     transition: all .2s;
 }
-.kuppy-segment.first,
-.kuppy-segment:first-of-type {
+.kuppy-segment.first, .kuppy-segment:first-of-type {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     border-right-width: 0;
@@ -363,7 +369,7 @@ input:checked + .kuppy-segment {
     transition: all .2s;
     color: #FFF;
 }
-input[disabled] + .kuppy-switch, input[disabled] + .kuppy-segment, input[disabled] + .kuppy-selection, input[disabled] + .kuppy-radio, input[disabled] + .kuppy-checkbox {
+input[disabled] + .kuppy-switch, input[disabled] + .kuppy-segment, input[disabled] + .kuppy-selection, input[disabled] + .kuppy-radio, input[disabled] + .kuppy-checkbox, button[disabled] {
     opacity: 0.5;
     cursor: not-allowed;
 }
@@ -468,7 +474,7 @@ input:checked + .kuppy-selection {
 }
 p {
     color: #666;
-    padding: 0 20px;
+    padding: 0 30px;
     font-size: 16px;
     line-height: 24px;
 }
@@ -488,20 +494,123 @@ p {
 .p-title:hover::before {
     color: #000;
 }
-
-@media screen and (max-width:640px){
-
-.kuppy-segment{
+.kuppy-textarea {
     display: block;
+    margin: 30px auto;
+    width: 90%;
+    border: 1px solid #EEE;
+    resize: none;
+    border-bottom: 2px solid #EEE;
+    border-radius: 5px;
+    min-height: 80px;
+    max-height: 100px;
+    transition: all .2s;
+    padding: 10px 15px;
+}
+.kuppy-textarea:hover, .kuppy-textarea:active, .kuppy-textarea:focus {
     border: 1px solid #0D94FF;
-    border-radius: 8px;
-    margin: 30px;
+    border-bottom: 2px solid #0D94FF;
 }
-
-.kuppy-segment.first,
-.kuppy-segment:first-of-type {
-    border-right: 1px solid #0D94FF !important;
+.kuppy-textarea:active, .kuppy-textarea:focus {
+    min-height: 260px;
+    transition: all .2s;
 }
-
-
+.mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    left: 0;
+}
+.kuppy-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 600px;
+    transform: translate(-50%, -50%) scale(1, 1);
+    background-color: #FFF;
+    border-radius: 5px;
+    padding: 30px 50px;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.5);
+    transition: all .6s;
+}
+.dialog-title {
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+.dialog-controls {
+    text-align: center;
+}
+.white-dialog-btn, .destructive-dialog-btn {
+    background: #FFF;
+    text-shadow: 0 0 1px #FFF;
+    font-size: 16px;
+    border: none;
+    padding: 10px 20px;
+}
+.destructive-dialog-btn {
+    color: #FF0000;
+}
+.white-dialog-btn {
+    color: #0D94FF;
+}
+.white-dialog-btn:hover {
+    background: #F1F1F1;
+    box-shadow: none;
+}
+.white-dialog-btn:active {
+    background: #EEE;
+    box-shadow: none;
+}
+.destructive-dialog-btn::before {
+    content: "\2573";
+    font-weight: 600;
+    margin-right: 8px;
+}
+.white-dialog-btn::before {
+    content: "\25EF";
+    font-weight: 600;
+    margin-right: 8px;
+}
+.destructive-dialog-btn:hover {
+    background: #FF0000;
+    box-shadow: none;
+    color: #FFF;
+    text-shadow: 0 0 1px #000;
+}
+.destructive-dialog-btn:active {
+    background: #DB0000;
+    box-shadow: none;
+    color: #FFF;
+    text-shadow: 0 0 1px #000;
+}
+.list-style-o {
+    list-style: disc;
+}
+.kuppy-dialog ul li {
+    color: #666;
+    margin: 0 30px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 24px;
+}
+@media screen and (max-width:640px) {
+    .kuppy-segment {
+        display: block;
+        border: 1px solid #0D94FF;
+        border-radius: 8px;
+        margin: 30px;
+    }
+    .kuppy-segment.first, .kuppy-segment:first-of-type {
+        border-right: 1px solid #0D94FF !important;
+    }
+    .kuppy-dialog {
+        width: 100vw;
+        max-width: 100vw;
+    }
 }
