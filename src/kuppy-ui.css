@@ -14,6 +14,15 @@ h1, h2, h3, h4, h5, h6, form, ul, ol, section, nav, sidebar {
 input:focus, textarea, button {
     outline: none;
 }
+input[type='text'], textarea {
+    font-family: Menlo, courier, monospace;
+}
+.text-small {
+    font-size: 0.8em;
+}
+.text-red {
+    color: red;
+}
 ul, ol {
     list-style: none;
 }
@@ -36,10 +45,12 @@ a:hover {
     text-align: center;
 }
 .main {
-    margin: 0 auto;
+    border-radius: 10px;
+    margin: 70px auto;
     width: 100%;
     max-width: 960px;
     background: #FFF;
+    box-shadow: 0 1px 8px rgba(136, 136, 136, 0.1);
 }
 section {
     padding: 50px 0;
@@ -51,6 +62,7 @@ section {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     padding: 5px 20px;
+    text-align: center;
     margin-bottom: 20px;
     text-shadow: 0 0 1px #FFF;
 }
@@ -65,6 +77,10 @@ section {
 }
 .hide {
     display: none;
+}
+.block {
+    display: block;
+    margin: auto;
 }
 .kuppy-switch {
     cursor: pointer;
@@ -163,6 +179,7 @@ input:checked + .kuppy-switch::after {
     padding-left: 20px;
 }
 .field {
+    clear: both;
     min-height: 80px;
     padding: 20px 0;
     border-bottom: 1px solid #EAEAEA;
@@ -327,10 +344,12 @@ input:checked + .kuppy-checkbox::after {
     margin: 10px auto 30px auto;
     padding: 7px 35px;
     border: 1px solid #0D94FF;
+    border-right: none;
     transition: all .2s;
 }
+.kuppy-segment.first,
 .kuppy-segment:first-of-type {
-    border: 1px solid #0D94FF;
+    border-right: 1px solid #0D94FF !important;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     border-right-width: 0;
@@ -338,13 +357,16 @@ input:checked + .kuppy-checkbox::after {
 .kuppy-segment:last-of-type {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    border: 1px solid #0D94FF;
-    border-left-width: 0;
+    border-right: 1px solid #0D94FF !important;
 }
 input:checked + .kuppy-segment {
     background: #0D94FF;
     transition: all .2s;
     color: #FFF;
+}
+input[disabled] + .kuppy-switch, input[disabled] + .kuppy-segment, input[disabled] + .kuppy-selection, input[disabled] + .kuppy-radio, input[disabled] + .kuppy-checkbox {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 button {
     margin: 20px;
@@ -404,6 +426,12 @@ button:hover {
 .destructive-btn:active {
     background: linear-gradient(to bottom, #C10000, #FF0000);
 }
+.big-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    display: block;
+    margin: 30px auto;
+}
 .kuppy-selection {
     display: inline-block;
     cursor: pointer;
@@ -438,4 +466,39 @@ input:checked + .kuppy-selection {
     border: 3px solid #0074EC;
     transition: all .1s;
     background-color: #0D94FF;
+}
+p {
+    color: #666;
+    padding: 0 20px;
+    font-size: 16px;
+    line-height: 24px;
+}
+.p-title {
+    font-weight: 300;
+    color: #444;
+    padding: 20px;
+    font-size: 20px;
+    line-height: 24px;
+}
+.p-title::before {
+    content: "#";
+    margin-right: 10px;
+    color: #999;
+    font-weight: 600;
+}
+.p-title:hover::before {
+    color: #000;
+}
+
+@media screen and (max-width:640px){
+
+.kuppy-segment{
+    display: block;
+    border: 1px solid #0D94FF;
+    border-radius: 8px;
+    margin: 30px;
+}
+
+
+
 }
