@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi" />
     <title>Kuppy UI Demo Page</title>
     <link rel="stylesheet" href="./src/kuppy-ui.css" media="screen" charset="utf-8" />
+    <script src="https://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -89,6 +90,37 @@
                 </div>
             </div>
 
+            <div class="field">
+                <textarea class="kuppy-textarea">Some text in textarea.</textarea>
+            </div>
+
+            <div class="field">
+                <button id="show-dialog-btn" class="big-btn">Show Dialog</button>
+            </div>
+
+            <div class="mask hide">
+                <div class="kuppy-dialog">
+                    <h2 class="dialog-title">Dialog Title</h2>
+                    <div class="field">
+                        <p>
+                            This is a dialog title.
+                        </p>
+                        <ul class="list-style-o">
+                            <li>Some content</li>
+                            <li>Yet some content</li>
+                            <li>Whoever cares</li>
+                        </ul>
+                        <p>
+                            Choose what to do next
+                        </p>
+                    </div>
+                    <div class="dialog-controls">
+                        <button id="agree-btn" class="white-dialog-btn">Yes</button>
+                        <button id="reject-btn" class="destructive-dialog-btn">Reject</button>
+                    </div>
+                </div>
+            </div>
+
 
             <p class="section-footer">All fields are required. See more detail at <a href="https://github.com/fxsinx/kuppy-ui">Github/Fxsinx</a>.</p>
         </section>
@@ -96,12 +128,43 @@
 
 
     <script type="text/javascript">
-        var textFields = document.querySelectorAll('.kuppy-textfield');
-        for (var i = 0; i < textFields.length; i++) {
-            textFields[i].addEventListener('keyup', function(e) {
-                this.setAttribute('value', this.value);
-            }, false);
-        }
+        (function($) {
+            var $textFields = $('.kuppy-textfield');
+            $textFields.each(function(k, v) {
+                $(this).keyup(function(e) {
+                    $(this).attr('value', this.value);
+                });
+            });
+
+            var $showDialogBtn = $('#show-dialog-btn');
+            $showDialogBtn.click(function(e) {
+                $('.mask').removeClass('hide').css({
+                    opacity: 0
+                }).animate({
+                    opacity: 1
+                }, 300);
+            });
+
+            var $rejectBtn = $('#reject-btn');
+            $rejectBtn.click(function(e) {
+                window.alert("You rejected!");
+                $('.mask').animate({
+                    opacity: 0
+                }, 300, function() {
+                    $(this).addClass('hide');
+                });
+            });
+
+            var $agreeBtn = $('#agree-btn');
+            $agreeBtn.click(function(e) {
+                $('.mask').animate({
+                    opacity: 0
+                }, 300, function() {
+                    $(this).addClass('hide');
+                });
+            });
+
+        })(jQuery);
     </script>
 
 
