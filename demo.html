@@ -27,15 +27,15 @@
                 <h4 class="hero-text">Receive Newsletters
                     <input class="hide" type="checkbox" checked id="receive-newsletter-switch" />
                     <label for="receive-newsletter-switch" class="kuppy-switch"><b></b></label>
-                    </h4>
+                </h4>
             </div>
 
             <div class="field">
                 <h4 class="hero-text">Do Not Bother
-                        <span class="hero-descript">Do not send me any notifications when I sleep.</span>
+                    <span class="hero-descript">Do not send me any notifications when I sleep.</span>
                     <input class="hide" type="checkbox" id="donotbother-switch" />
                     <label for="donotbother-switch" class="kuppy-switch"><b></b></label>
-                    </h4>
+                </h4>
             </div>
 
             <div class="field">
@@ -98,6 +98,26 @@
                 <button id="show-dialog-btn" class="big-btn">Show Dialog</button>
             </div>
 
+            <div class="field">
+                <div class="kuppy-drag-container">
+                    <div class="kuppy-drag-source-container">
+                        <h4 class="caption-text">Draggable Elements</h4>
+                        <figure class="kuppy-drag-figure" draggable="true">
+                            A
+                        </figure>
+                        <figure class="kuppy-drag-figure" draggable="true">
+                            B
+                        </figure>
+                        <figure class="kuppy-drag-figure" draggable="true">
+                            C
+                        </figure>
+                    </div>
+                    <div class="kuppy-drag-dest-container">
+                        <h4 class="caption-text">Dragging Destination</h4>
+                    </div>
+                </div>
+            </div>
+
             <div class="mask hide">
                 <div class="kuppy-dialog">
                     <h2 class="dialog-title">Dialog Title</h2>
@@ -131,8 +151,8 @@
         (function($) {
             var $textFields = $('.kuppy-textfield');
             $textFields.each(function(k, v) {
-                $(this).keyup(function(e) {
-                    $(this).attr('value', this.value);
+                $(this).blur(function(e) {
+                    $(e.target || this).attr('value', this.value);
                 });
             });
 
@@ -161,6 +181,38 @@
                     opacity: 0
                 }, 300, function() {
                     $(this).addClass('hide');
+                });
+            });
+
+            var eventHelper = {
+                addEventListener: function(obj, name, func, capture) {
+                    capture = capture || false;
+                    if (obj.addEventListener) {
+                        obj.addEventListener(name, func, capture);
+                    } else if (obj.attachEvent) {
+                        obj.attachEvent('on' + name, func);
+                    } else {
+                        obj['on' + name] = func;
+                    }
+                },
+                draggingItem: null,
+            };
+
+            var $dragContainer = $('.kuppy-drag-container');
+            $dragContainer.each(function(k, v) {
+                eventHelper.addEventListener(this, 'dragstart', function(e) {
+                    eventHelper.draggingItem = e.target;
+                });
+
+                eventHelper.addEventListener(this, 'dragover', function(e) {
+                    e.preventDefault();
+                });
+
+                eventHelper.addEventListener(this, 'drop', function(e) {
+                    if ($(e.target).hasClass('kuppy-drag-source-container') || $(e.target).hasClass('kuppy-drag-dest-container')) {
+                        e.target.appendChild(eventHelper.draggingItem);
+                        eventHelper.draggingItem = null;
+                    }
                 });
             });
 

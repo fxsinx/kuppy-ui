@@ -7,7 +7,9 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 0;
 }
-h1, h2, h3, h4, h5, h6, form, ul, ol, section, nav, sidebar {
+h1, h2, h3, h4, h5, h6, form,
+ul, ol, section, nav, sidebar,
+figure {
     padding: 0;
     margin: 0;
 }
@@ -599,6 +601,52 @@ p {
     font-size: 16px;
     line-height: 24px;
 }
+
+.kuppy-drag-container{
+    display: block;
+    position: relative;
+    margin: 30px;
+}
+
+.kuppy-drag-container::after{
+    content: " ";
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.kuppy-drag-source-container{
+    width: 45%;
+    float: left;
+    min-height: 80px;
+}
+
+.kuppy-drag-dest-container{
+    margin-left: 30px;
+    float: left;
+    border: 5px dotted #F1F1F1;
+    border-radius: 20px;
+    width: 45%;
+    min-height: 80px;
+}
+
+.kuppy-drag-figure{
+    display: inline-block;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #FAFAFA;
+    border: 1px solid #EAEAEA;
+    padding: 10px 15px;
+    margin: 8px;
+    cursor: move;
+    transition: all .2s;
+}
+
+.kuppy-drag-figure:hover{
+    box-shadow: 0 0 8px rgba(136, 136, 136, 0.1);
+    transition: all .2s;
+}
+
 @media screen and (max-width:640px) {
     .kuppy-segment {
         display: block;
@@ -613,4 +661,11 @@ p {
         width: 100vw;
         max-width: 100vw;
     }
+    .kuppy-drag-source-container,
+    .kuppy-drag-dest-container{
+        float: none;
+        margin: 30px auto;
+        width: 100%;
+    }
+
 }
